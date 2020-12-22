@@ -9,7 +9,7 @@
 
 # OTHER:
 # Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
-# Bot will notify the chat when the GitHub repo has been updated (ex: star/uns tar the repo sends a notification)
+# Bot will notify the chat when the GitHub repo has been updated (ex: star/unstar the repo sends a notification)
 #--------------------------------------------------------#
 
 # LIBRARIES
