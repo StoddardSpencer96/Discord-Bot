@@ -1,4 +1,3 @@
-# ALL FUNCTIONS GO HERE
 import requests
 import json
 from replit import db # used for our replit database

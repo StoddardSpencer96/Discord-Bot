@@ -2,7 +2,6 @@
 #--------------------------------------------------------#
 # LIST OF COMMANDS:
 # $inspire = for a new inspirational quote
-# $rand  = for a random number
 # $new  = to add a new inspirational quote
 # $del = to delete an inspirational quote
 # $list  = to see the list of inspirational quotes
@@ -10,7 +9,7 @@
 
 # OTHER:
 # Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
-# Bot will notify the chat when the GitHub repo has been updated (ex: star/unstar the repo sends a notification)
+# Bot will notify the chat when the GitHub repo has been updated (ex: star/uns tar the repo sends a notification)
 #--------------------------------------------------------#
 
 # LIBRARIES
