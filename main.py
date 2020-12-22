@@ -14,6 +14,8 @@
 
 #TO-DO LIST:
 #1) Get the greeting to work with mixed case (ex: HeY, HeLLo)
+#2) Fix up commenting (some are all caps, some are all lowercase)
+#3) Clean up code to make the main.py file neater.
 #--------------------------------------------------------#
 
 # LIBRARIES
