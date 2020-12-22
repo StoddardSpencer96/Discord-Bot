@@ -11,6 +11,9 @@
 # Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
 # Bot will notify the chat when the GitHub repo has been updated (ex: star/unstar the repo sends a notification)
 #Bot will send a random greeting whenever the user types in "hi", "hey", or "hello" in lower or uppercase.
+
+#TO-DO LIST:
+#1) Get the greeting to work with mixed case (ex: HeY, HeLLo)
 #--------------------------------------------------------#
 
 # LIBRARIES
@@ -36,7 +39,7 @@ sad_words = ["sad", "depressed", "lonely", "crying", "alone", "unhappy", "misera
 starter_encouragements = ["Cheer up", "Hang in there", "You are a wonderful soul", "I am here for you"]
 
 #LIST FOR GREETINGS
-bot_greetings = ["Hello!", "Hey!", "Greetings and salutations.", "What's up?", "Hi!"]
+bot_greetings = ["Hello!", "Hey!", "Greetings and salutations.", "What's up?", "Hi!", "Good to see you again.", "Hey dude!"]
 #--------------------------------------------------------#
 
 # EVENTS
