@@ -6,6 +6,7 @@
 # $del = to delete an inspirational quote
 # $list  = to see the list of inspirational quotes
 # $responding = if it's True, the bot will respond; if it's false, the bot will not respond
+# $rickroll = Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 
 # OTHER:
 # Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
@@ -77,6 +78,11 @@ async def on_message(message):
   #then choose a random greeting for the bot to use
   if msg.lower() == "hi" or msg.lower() == "hey" or msg.lower() == "hello":
     await message.channel.send(random.choice(greeting))
+
+  #If our message is $rickroll, then rick roll the user
+  if msg.startswith('$rickroll'):
+    link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+    await message.channel.send(link)
     
   if db["responding"]:
     if "responding" not in db.keys():
