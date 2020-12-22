@@ -33,6 +33,9 @@ sad_words = ["sad", "depressed", "lonely", "crying", "alone", "unhappy", "misera
 # LIST OF ENCOURAGING MESSAGES
 # reason for variable name: user can add more encouragements to the database
 starter_encouragements = ["Cheer up", "Hang in there", "You are a wonderful soul", "I am here for you"]
+
+#LIST FOR GREETINGS
+bot_greetings = ["Hello!", "Hey!", "Greetings and salutations.", "What's up?", "Hi!"]
 #--------------------------------------------------------#
 
 # EVENTS
@@ -54,6 +57,8 @@ async def on_message(message):
 # creates a new variable from message.content, 
   # that way we save some time instead of typing it all out
   msg = message.content
+  greeting = bot_greetings
+  options = starter_encouragements
   
   # IF OUR MESSAGE STARTS WITH $INSPIRE,
   # CALL THE GET_QUOTE() FUNCTION,
@@ -61,11 +66,13 @@ async def on_message(message):
   if msg.startswith('$inspire'):
     quote = get_quote()
     await message.channel.send(quote)
+
+  #If our message starts with any variation of hi, hey or hello,
+  #then choose a random greeting for the bot to use
+  if msg.lower() == "hi" or msg.lower() == "hey" or msg.lower() == "hello":
+    await message.channel.send(random.choice(greeting))
     
   if db["responding"]:
-    # create a new variable to make it easier to access
-    options = starter_encouragements
-    
     if "responding" not in db.keys():
       db["responding"] = True
 
