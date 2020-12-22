@@ -2,7 +2,6 @@
 #--------------------------------------------------------#
 # LIST OF COMMANDS:
 # $inspire = for a new inspirational quote
-# $rand  = for a random number
 # $new  = to add a new inspirational quote
 # $del = to delete an inspirational quote
 # $list  = to see the list of inspirational quotes
