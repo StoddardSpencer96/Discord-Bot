@@ -10,21 +10,21 @@ client = discord.Client()
 
 # List of sad words
 sad_words = ["sad", "depressed",
-"lonely", "crying", "alone",
-"unhappy", "miserable", "depressing",
-"anger", "angry"]
+             "lonely", "crying", "alone",
+             "unhappy", "miserable", "depressing",
+             "anger", "angry"]
 
 # List of encouraging messages
 # Reason for variable name: user can add more encouragements to the database
 starter_encouragements = ["Cheer up",
-"Hang in there", "You are a wonderful soul",
-"I am here for you"]
+                          "Hang in there", "You are a wonderful soul",
+                          "I am here for you"]
 
 # List of greetings
 bot_greetings = ["Hello!", "Hey!",
-"Greetings and salutations.", "What's up?",
-"Hi!", "Good to see you again.",
-"Hey dude!"]
+                 "Greetings and salutations.", "What's up?",
+                 "Hi!", "Good to see you again.",
+                 "Hey dude!"]
 
 
 # Event for logging in
