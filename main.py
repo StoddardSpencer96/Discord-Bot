@@ -53,38 +53,38 @@ async def on_message(message):
     # If our message starts with any variation of hi, hey or hello,
     # Then choose a random greeting for the bot to use
     if msg.lower() == "hi" or msg.lower() == "hey" or msg.lower() == "hello":
-      await message.channel.send(random.choice(greeting))
+        await message.channel.send(random.choice(greeting))
 
     # If our message is $rickroll, then rick roll the user
     if msg.startswith('$rickroll'):
-      link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
-      await message.channel.send(link)
+        link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+        await message.channel.send(link)
 
     # If "responding" isn't in our database,
     # Then add True
     if db["responding"]:
-      if "responding" not in db.keys():
-        db["responding"] = True
+        if "responding" not in db.keys():
+            db["responding"] = True
 
     # If encouragements is in our database,
     # Add the encouragements to the database
     if "encouragements" in db.keys():
-      options = options + db["encouragements"]
+        options = options + db["encouragements"]
 
     # Go through all of the words in the list of
     # Sad words, and if any of the words are
     # In the message, randomly choose an encouraging
     # Phrase for the user to see
     if any(word in msg for word in sad_words):
-      await message.channel.send(random.choice(options))
+        await message.channel.send(random.choice(options))
 
     # If the user types in $new, then our message
     # Will be split, and we'll get the message
     # As an array
     if msg.startswith('$new'):
-      encouraging_message = msg.split("$new ", 1)[1]
-      update_encouragements(encouraging_message)
-      await message.channel.send("New encouraging message has been added.")
+        encouraging_message = msg.split("$new ", 1)[1]
+        update_encouragements(encouraging_message)
+        await message.channel.send("New encouraging message has been added.")
 
     # If the user types in $del, then create a new list,
     # Of encouragements, and if it's in our database,
@@ -92,36 +92,36 @@ async def on_message(message):
     # Then update the database, and show the new list
     # Of encouragements
     if msg.startswith('$del'):
-      encouragements = []
-      if "encouragements" in db.keys():
-        index = int(msg.split('$del', 1)[1])
-        delete_encouragement(index)
-        encouragements = db["encouragements"]
-      await message.channel.send(encouragements)
+        encouragements = []
+        if "encouragements" in db.keys():
+            index = int(msg.split('$del', 1)[1])
+            delete_encouragement(index)
+            encouragements = db["encouragements"]
+        await message.channel.send(encouragements)
 
     # If the user types in $list, thehn create a new list,
     # And if the encouragements are in our database,
     # Show the user the list of encouragements
     if msg.startswith('$list'):
-      encouragements = []
-      if "encouragements" in db.keys():
-        encouragements = db["encouragements"]
-      await message.channel.send(encouragements)
+        encouragements = []
+        if "encouragements" in db.keys():
+            encouragements = db["encouragements"]
+        await message.channel.send(encouragements)
 
     # If the user types in $responding, then take the
     # User input, and if they type true, notify the user
     # That responding is on. If they type false, notify
     # The user that responding is off.
     if msg.startswith('$responding'):
-      value = msg.split("$responding ", 1)[1]
+        value = msg.split("$responding ", 1)[1]
 
     if value.lower() == "true":
-      db["responding"] = True
-      await message.channel.send("Responding is on.")
+        db["responding"] = True
+        await message.channel.send("Responding is on.")
 
     else:
-      db["responding"] = False
-      await message.channel.send("Responding is off.")
+        db["responding"] = False
+        await message.channel.send("Responding is off.")
 
     # Runs our web server
     keep_alive()
