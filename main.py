@@ -46,13 +46,13 @@ async def on_message(message):
 
     # If user types $inspire, call the get_quote() function,
     # Then show the quote to the user
-    if msg.startswith('$inspire'):
+    if msg.startswith("$inspire"):
         quote = get_quote()
         await message.channel.send(quote)
 
     # If our message starts with any variation of hi, hey or hello,
     # Then choose a random greeting for the bot to use
-    if msg.lower() == "hi" or msg.lower() == "hey" or msg.lower() == "hello":
+    if msg.lower().startswith("hi") or msg.lower().startswith("hey") or msg.lower().startswith("hello"):
         await message.channel.send(random.choice(greeting))
 
     # If our message is $rickroll, then rick roll the user
@@ -123,8 +123,8 @@ async def on_message(message):
         db["responding"] = False
         await message.channel.send("Responding is off.")
 
-    # Runs our web server
-    keep_alive()
+# Runs our web server
+keep_alive()
 
-    # Runs our bot
-    client.run(os.getenv('TOKEN'))
+# Runs our bot
+client.run(os.getenv('TOKEN'))
