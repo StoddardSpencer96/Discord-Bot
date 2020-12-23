@@ -37,13 +37,14 @@ def get_quote():
 # Then retrieve that encouragement,
 # And use it in our program
 def update_encouragements(encouraging_message):
-  if "encouragements" in db.keys():
-    encouragements = db["encouragements"]
-    encouragements.append(encouraging_message)
-    db["encouragements"] = encouragements
+    if "encouragements" in db.keys():
+        encouragements = db["encouragements"]
+        encouragements.append(encouraging_message)
+        db["encouragements"] = encouragements
 
-  else:
-    db["encouragements"] = [encouraging_message]
+    else:
+        db["encouragements"] = [encouraging_message]
+
 
 # Function to delete an encouragement
 # Index = index of msg to delete
@@ -52,8 +53,8 @@ def update_encouragements(encouraging_message):
 # Then delete the encouragement at its index,
 # Then update the database
 def delete_encouragement(index):
-  encouragements = db["encouragements"]
+    encouragements = db["encouragements"]
 
-  if len(encouragements) > index:
-    del encouragements[index]
-    db["encouragements"] = encouragements
+    if len(encouragements) > index:
+        del encouragements[index]
+        db["encouragements"] = encouragements
