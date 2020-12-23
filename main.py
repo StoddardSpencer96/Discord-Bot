@@ -6,16 +6,22 @@
 # $del = to delete an inspirational quote
 # $list  = to see the list of inspirational quotes
 # $responding = if it's True, the bot will respond; if it's false, the bot will not respond
+# $rickroll = Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 
 # OTHER:
 # Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
 # Bot will notify the chat when the GitHub repo has been updated (ex: star/unstar the repo sends a notification)
 #Bot will send a random greeting whenever the user types in "hi", "hey", or "hello" in lower or uppercase.
+
+#TO-DO LIST:
+#1) Get the greeting to work with mixed case (ex: HeY, HeLLo)
+#2) Fix up commenting (some are all caps, some are all lowercase)
+#3) Clean up code to make the main.py file neater.
 #--------------------------------------------------------#
 
 # LIBRARIES
 #--------------------------------------------------------#
-# IMPORT LIBRARIES TO USE
+#Import libraries to use
 import discord
 import os
 import random # used for the bot to choose messages randomly
@@ -25,28 +31,28 @@ from functions import get_quote, update_encouragements, delete_encouragement # u
 
 # VARIABLE DECLARATIONS
 #--------------------------------------------------------#
-# CREATE VARIABLE FOR THE BOT
+#Create variable for our bot
 client = discord.Client()
 
-# LIST FOR SAD WORDS
+#List of sad words
 sad_words = ["sad", "depressed", "lonely", "crying", "alone", "unhappy", "miserable", "depressing", "anger", "angry"]
 
-# LIST OF ENCOURAGING MESSAGES
-# reason for variable name: user can add more encouragements to the database
+#List of encouraging messages
+#reason for variable name: user can add more encouragements to the database
 starter_encouragements = ["Cheer up", "Hang in there", "You are a wonderful soul", "I am here for you"]
 
-#LIST FOR GREETINGS
-bot_greetings = ["Hello!", "Hey!", "Greetings and salutations.", "What's up?", "Hi!"]
+#List of greetings
+bot_greetings = ["Hello!", "Hey!", "Greetings and salutations.", "What's up?", "Hi!", "Good to see you again.", "Hey dude!"]
 #--------------------------------------------------------#
 
 # EVENTS
 #--------------------------------------------------------#
-# EVENT FOR LOGGING IN
+# Event for logging in
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
 
-# EVENT FOR GETTING THE MESSAGE
+# Event for getting the message
 @client.event
 async def on_message(message):
   if message.author == client.user:
@@ -55,15 +61,13 @@ async def on_message(message):
 
 # LOGIC FOR THE BOT
 #--------------------------------------------------------#
-# creates a new variable from message.content, 
-  # that way we save some time instead of typing it all out
+  #Create new variables for easier access
   msg = message.content
   greeting = bot_greetings
   options = starter_encouragements
   
-  # IF OUR MESSAGE STARTS WITH $INSPIRE,
-  # CALL THE GET_QUOTE() FUNCTION,
-  # THEN SHOWCASE THE QUOTE
+  #If user types $inspire, call the get_quote() function,
+  #then show the quote to the user
   if msg.startswith('$inspire'):
     quote = get_quote()
     await message.channel.send(quote)
@@ -72,18 +76,27 @@ async def on_message(message):
   #then choose a random greeting for the bot to use
   if msg.lower() == "hi" or msg.lower() == "hey" or msg.lower() == "hello":
     await message.channel.send(random.choice(greeting))
+
+  #If our message is $rickroll, then rick roll the user
+  if msg.startswith('$rickroll'):
+    link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+    await message.channel.send(link)
     
+  #If "responding" isn't in our database,
+  #then add True
   if db["responding"]:
     if "responding" not in db.keys():
       db["responding"] = True
 
-    if "encouragements" in db.keys():
-      options = options + db["encouragements"]
+  #If encouragements is in our database,
+  #add the encouragements to the database
+  if "encouragements" in db.keys():
+    options = options + db["encouragements"]
 
-  # go through any words in the sad words, 
-  # and if any of the words are in the message
-  # randomly choose an encouraging phrase for 
-  # the user to see
+  #Go through all of the words in the list of 
+  #sad words, and if any of the words are 
+  #in the message, randomly choose an encouraging 
+  #phrase for the user to see
   if any(word in msg for word in sad_words):
     await message.channel.send(random.choice(options))
 
@@ -94,7 +107,12 @@ async def on_message(message):
     encouraging_message = msg.split("$new ",1)[1]
     update_encouragements(encouraging_message)
     await message.channel.send("New encouraging message has been added.")
-
+  
+  #If the user types in $del, then create a new list,
+  #of encouragements, and if it's in our database,
+  #delete the encouragement from our database,
+  #then update the database, and show the new list
+  #of encouragements
   if msg.startswith('$del'):
     encouragements = []
     if "encouragements" in db.keys():
@@ -103,12 +121,19 @@ async def on_message(message):
       encouragements = db["encouragements"]
     await message.channel.send(encouragements)
 
+  #If the user types in $list, thehn create a new list,
+  #and if the encouragements are in our database,
+  #show the user the list of encouragements
   if msg.startswith('$list'):
     encouragements = []
     if "encouragements" in db.keys():
       encouragements = db["encouragements"]
     await message.channel.send(encouragements)
 
+  #If the user types in $responding, then take the
+  #user input, and if they type true, notify the user
+  #that responding is on. If they type false, notify
+  #the user that responding is off.
   if msg.startswith('$responding'):
     value = msg.split("$responding ",1)[1]
 
@@ -123,9 +148,9 @@ async def on_message(message):
 
 # MISCELLANEOUS
 #--------------------------------------------------------#
-# runs our web server
+#Runs our web server
 keep_alive()
 
-# RUN THE BOT
+#Runs our bot
 client.run(os.getenv('TOKEN'))
 #--------------------------------------------------------#
