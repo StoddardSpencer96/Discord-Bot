@@ -14,6 +14,5 @@ Last Updated: December 23rd, 2020
 * Bot will send a random greeting whenever the user types in "hi", "hey", or "hello" in lower or uppercase.
 
 ## TO-DO LIST:
-* Get the greeting to work with mixed case (ex: HeY, HeLLo)
 * Fix up commenting (some are all caps, some are all lowercase)
 * Clean up code to make the main.py file neater.
