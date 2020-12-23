@@ -46,7 +46,7 @@ async def on_message(message):
 
     # If user types $inspire, call the get_quote() function,
     # Then show the quote to the user
-    if msg.startswith("$inspire"):
+    if msg.startswith('$inspire'):
         quote = get_quote()
         await message.channel.send(quote)
 
@@ -115,13 +115,12 @@ async def on_message(message):
     if msg.startswith('$responding'):
         value = msg.split("$responding ", 1)[1]
 
-    if value.lower() == "true":
-        db["responding"] = True
-        await message.channel.send("Responding is on.")
-
-    else:
-        db["responding"] = False
-        await message.channel.send("Responding is off.")
+        if value.lower() == "true":
+          db["responding"] = True
+          await message.channel.send("Responding is on.")
+        else:
+          db["responding"] = False
+          await message.channel.send("Responding is off.")
 
 # Runs our web server
 keep_alive()

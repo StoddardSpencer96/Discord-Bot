@@ -24,9 +24,7 @@ def get_quote():
     # Displays the quote, then the author of the quote
     # q = quote
     # a = author
-    quote = "Quote for " + str(today_formatted)
-    + ": " + json_data[0]['q'] + " - "
-    + json_data[0]['a']
+    quote = "Quote for " + str(today_formatted) + ": " + json_data[0]['q'] + " - " + json_data[0]['a']
 
     # Return the quote
     return(quote)
