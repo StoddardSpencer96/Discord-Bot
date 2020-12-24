@@ -15,4 +15,5 @@ Last Updated: December 23rd, 2020
 
 ## TO-DO LIST:
 * Fix up commenting (some are all caps, some are all lowercase)
-* Clean up code to make the main.py file neater.
+* Clean up code to make the main.py file neater
+* Implement the current time whenever the user types $time
