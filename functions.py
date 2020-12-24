@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import random
+import threading
 from replit import db
 from datetime import date
 
@@ -56,10 +57,19 @@ def get_time():
 # Used as reference: https://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
 def get_color():
   rand_color = "%06x" % random.randint(0 , 0xFFFFFF)
-  
+
   link_color = "https://color-hex.org/color/" + rand_color
 
   return (link_color)
+
+# Function to make sure that the bot is saying something
+# Every 20 seconds. Note that this will only print to
+# The console, and not to the Discord server.
+# Used as reference: https://stackoverflow.com/questions/3393612/run-certain-code-every-n-seconds
+def time_test():
+  threading.Timer(20.0, time_test).start()
+  
+  print("This is a test to make sure I am always saying something every 20 seconds.")
 
 
 # Function to update the encouragements from the database

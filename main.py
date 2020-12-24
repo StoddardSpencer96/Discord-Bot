@@ -3,7 +3,7 @@ import os
 import random
 from replit import db
 from keep_alive import keep_alive
-from functions import get_quote, get_rick, get_time, get_color, update_encouragements, delete_encouragement
+from functions import get_quote, get_rick, get_time, get_color, time_test, update_encouragements, delete_encouragement
 
 # Create variable for our bot
 client = discord.Client()
@@ -26,6 +26,8 @@ bot_greetings = ["Hello!", "Hey!",
                  "Hi!", "Good to see you again.",
                  "Hey dude!"]
 
+# Call the time_test() function before the events start.
+time_test()
 
 # Event for logging in
 @client.event
