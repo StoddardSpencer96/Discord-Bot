@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 from replit import db
 from datetime import date
 
@@ -34,6 +35,21 @@ def get_quote():
     # Return the quote
     return(quote)
 
+# Function to get the link for the rick rol
+def get_rick():
+  link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+
+  return (link)
+
+# Function to get the current date and time
+# Work in Progress
+def get_time():
+  current_time = time.strftime("%I:%S %p")
+
+  time_formatted = ("The current time is: " 
+  + str(current_time))
+  
+  return (time_formatted)
 
 # Function to update the encouragements from the database
 # If encouragements is in our database,

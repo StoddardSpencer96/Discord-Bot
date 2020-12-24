@@ -3,7 +3,7 @@ import os
 import random
 from replit import db
 from keep_alive import keep_alive
-from functions import get_quote, update_encouragements, delete_encouragement
+from functions import get_quote, get_rick, get_time, update_encouragements, delete_encouragement
 
 # Create variable for our bot
 client = discord.Client()
@@ -57,8 +57,13 @@ async def on_message(message):
 
     # If our message is $rickroll, then rick roll the user
     if msg.startswith('$rickroll'):
-        link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+        link = get_rick()
         await message.channel.send(link)
+
+    # If our message is $time, then display the current time (in EST)
+    if msg.startswith('$time'):
+        now = get_time()
+        await message.channel.send(now)
 
     # If "responding" isn't in our database,
     # Then add True
