@@ -5,8 +5,6 @@ Last Updated: December 24th, 2020
 * $new - to add a new inspirational quote
 * $del - to delete an inspirational quote
 * $list - to see the list of inspirational quotes
-* $responding True - the bot will say "Responding is on." (NOTE: not sure if this will stay or not)
-* $responding False - the bot will say "Responding is off." (NOTE: not sure if this will stay or not)
 * $rickroll - Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 * $color - Bot will generate a random color using its hex value
 
