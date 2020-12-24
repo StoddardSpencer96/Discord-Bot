@@ -55,9 +55,10 @@ def get_time():
 # Function to get a random color
 # Used as reference: https://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
 def get_color():
-  rand_color = "#" + "%06x" % random.randint(0 , 0xFFFFFF)
+  rand_color = "%06x" % random.randint(0 , 0xFFFFFF)
+  link_color = "https://color-hex.org/color/" + rand_color
 
-  return (rand_color)
+  return (link_color)
 
 
 # Function to update the encouragements from the database
