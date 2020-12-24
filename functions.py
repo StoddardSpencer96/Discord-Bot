@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import random
 from replit import db
 from datetime import date
 
@@ -50,6 +51,14 @@ def get_time():
   + str(current_time))
   
   return (time_formatted)
+
+# Function to get a random color
+# Used as reference: https://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
+def get_color():
+  rand_color = "#" + "%06x" % random.randint(0 , 0xFFFFFF)
+
+  return (rand_color)
+
 
 # Function to update the encouragements from the database
 # If encouragements is in our database,
