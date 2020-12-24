@@ -116,21 +116,7 @@ async def on_message(message):
         if "encouragements" in db.keys():
             encouragements = db["encouragements"]
         await message.channel.send(encouragements)
-
-    # If the user types in $responding, then take the
-    # User input, and if they type true, notify the user
-    # That responding is on. If they type false, notify
-    # The user that responding is off.
-    if msg.startswith('$responding'):
-        value = msg.split("$responding ", 1)[1]
-
-        if value.lower() == "true":
-          db["responding"] = True
-          await message.channel.send("Responding is on.")
-        else:
-          db["responding"] = False
-          await message.channel.send("Responding is off.")
-
+  
 # Runs our web server
 keep_alive()
 
