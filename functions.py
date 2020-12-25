@@ -6,11 +6,12 @@ import threading
 from replit import db
 from datetime import date
 
+
 # Function to format the time
 # Used in get_daily_quote() function but can
 # Be used in future functions if necessary
 def format_time():
-  # Get the current date
+    # Get the current date
     today = date.today()
 
     # Format the date to fit mm/dd/yy
