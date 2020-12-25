@@ -20,6 +20,6 @@ Last Updated: December 25th, 2020
 * Add Sounds to the Bot
 
 ## Former Commands
-* $inspire (became $daily)
-* $responding True (removed)
-* $responding False (removed)
+* $responding True (removed on Dec 24th, 2020)
+* $responding False (removed on Dec 24th, 2020)
+* $inspire (became $daily on Dec 25th, 2020)
