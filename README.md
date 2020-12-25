@@ -1,10 +1,10 @@
-Last Updated: December 24th, 2020
+Last Updated: December 25th, 2020
 
 ## List of Commands:
-* $inspire - for a new inspirational quote
-* $new - to add a new inspirational quote
-* $del - to delete an inspirational quote
-* $list - to see the list of inspirational quotes
+* $daily - for the quote of the day
+* $new - to add a new inspirational message
+* $del - to delete an inspirational message
+* $list - to see the list of inspirational messages
 * $rickroll - Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 * $color - Bot will generate a random color using its hex value
 
@@ -19,3 +19,7 @@ Last Updated: December 24th, 2020
 * Convert input to binary and hexadecimal numbers
 * Add Sounds to the Bot
 
+## Former Commands
+* $inspire (became $daily)
+* $responding True (removed)
+* $responding False (removed)
