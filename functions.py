@@ -6,6 +6,20 @@ import threading
 from replit import db
 from datetime import date
 
+# Function to format the time
+# Used in get_daily_quote() function but can
+# Be used in future functions if necessary
+def format_time():
+  # Get the current date
+    today = date.today()
+
+    # Format the date to fit mm/dd/yy
+    # Used as reference: https://strftime.org/
+    today_formatted = today.strftime("%B %d, %Y")
+
+    # Return the formatted date
+    return (today_formatted)
+
 
 # Function to get the quote of the day
 def get_daily_quote():
@@ -13,12 +27,8 @@ def get_daily_quote():
     # It will return a random quote
     response = requests.get("https://zenquotes.io/api/today")
 
-    # Get the current date
-    today = date.today()
-
-    # Format the date to fit mm/dd/yy
-    # Used as reference: https://strftime.org/
-    today_formatted = today.strftime("%B %d, %Y")
+    # Call the format_time() function
+    quote_today = format_time()
 
     # Convert this response to JSON
     json_data = json.loads(response.text)
@@ -28,7 +38,7 @@ def get_daily_quote():
     # q = quote
     # a = author
     daily_quote = ("Quote for " +
-                   str(today_formatted) +
+                   str(quote_today) +
                    ": " +
                    json_data[0]['q'] +
                    " - " +
@@ -48,7 +58,7 @@ def get_rick():
 # Function to get the current date and time
 # Work in Progress
 def get_time():
-    current_time = time.strftime("%I:%S %p")
+    current_time = time.time()
 
     time_formatted = ("The current time is: " +
                       str(current_time))
