@@ -3,7 +3,9 @@ import os
 import random
 from replit import db
 from keep_alive import keep_alive
-from functions import get_quote, get_rick, get_time, get_color, time_test, update_encouragements, delete_encouragement
+from functions import (get_daily_quote, get_rick,
+                       get_time, get_random_color,
+                       time_test, update_encouragements, delete_encouragement)
 
 # Create variable for our bot
 client = discord.Client()
@@ -29,6 +31,7 @@ bot_greetings = ["Hello!", "Hey!",
 # Call the time_test() function before the events start.
 time_test()
 
+
 # Event for logging in
 @client.event
 async def on_ready():
@@ -46,15 +49,17 @@ async def on_message(message):
     greeting = bot_greetings
     options = starter_encouragements
 
-    # If user types $inspire, call the get_quote() function,
+    # If user types $daily, call the get_daily_quote() function,
     # Then show the quote to the user
-    if msg.startswith('$inspire'):
-        quote = get_quote()
+    if msg.startswith('$daily'):
+        quote = get_daily_quote()
         await message.channel.send(quote)
 
     # If our message starts with any variation of hi, hey or hello,
     # Then choose a random greeting for the bot to use
-    if msg.lower().startswith("hi") or msg.lower().startswith("hey") or msg.lower().startswith("hello"):
+    if (msg.lower().startswith("hi") or
+            msg.lower().startswith("hey") or
+            msg.lower().startswith("hello")):
         await message.channel.send(random.choice(greeting))
 
     # If our message is $rickroll, then rick roll the user
@@ -68,8 +73,8 @@ async def on_message(message):
         await message.channel.send(now)
 
     if msg.startswith('$color'):
-        color = get_color()
-        await message.channel.send(color)
+        rand_color = get_random_color()
+        await message.channel.send(rand_color)
 
     # If "responding" isn't in our database,
     # Then add True
@@ -118,7 +123,7 @@ async def on_message(message):
         if "encouragements" in db.keys():
             encouragements = db["encouragements"]
         await message.channel.send(encouragements)
-  
+
 # Runs our web server
 keep_alive()
 

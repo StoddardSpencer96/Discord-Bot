@@ -3,12 +3,13 @@ import json
 import time
 import random
 import threading
+import discord
 from replit import db
 from datetime import date
 
 
 # Function to get the quote of the day
-def get_quote():
+def get_daily_quote():
     # Use the request module to request data from the API
     # It will return a random quote
     response = requests.get("https://zenquotes.io/api/today")
@@ -27,15 +28,15 @@ def get_quote():
     # Displays the quote, then the author of the quote
     # q = quote
     # a = author
-    quote = ("Quote for " 
+    daily_quote = ("Quote for " 
     + str(today_formatted) 
     + ": " 
     + json_data[0]['q'] 
     + " - "
     + json_data[0]['a'])
 
-    # Return the quote
-    return(quote)
+    # Return the daily quote
+    return(daily_quote)
 
 # Function to get the link for the rick rol
 def get_rick():
@@ -55,7 +56,7 @@ def get_time():
 
 # Function to get a random color
 # Used as reference: https://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
-def get_color():
+def get_random_color():
   rand_color = "%06x" % random.randint(0 , 0xFFFFFF)
 
   link_color = "https://color-hex.org/color/" + rand_color
@@ -67,9 +68,9 @@ def get_color():
 # The console, and not to the Discord server.
 # Used as reference: https://stackoverflow.com/questions/3393612/run-certain-code-every-n-seconds
 def time_test():
-  threading.Timer(20.0, time_test).start()
+  threading.Timer(120.0, time_test).start()
   
-  print("This is a test to make sure I am always saying something every 20 seconds.")
+  print("This is a test to make sure I am always saying something every 2 minutes.")
 
 
 # Function to update the encouragements from the database
