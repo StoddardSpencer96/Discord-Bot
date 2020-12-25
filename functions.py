@@ -3,7 +3,6 @@ import json
 import time
 import random
 import threading
-import discord
 from replit import db
 from datetime import date
 
@@ -28,49 +27,54 @@ def get_daily_quote():
     # Displays the quote, then the author of the quote
     # q = quote
     # a = author
-    daily_quote = ("Quote for " 
-    + str(today_formatted) 
-    + ": " 
-    + json_data[0]['q'] 
-    + " - "
-    + json_data[0]['a'])
+    daily_quote = ("Quote for " +
+                   str(today_formatted) +
+                   ": " +
+                   json_data[0]['q'] +
+                   " - " +
+                   json_data[0]['a'])
 
     # Return the daily quote
     return(daily_quote)
 
+
 # Function to get the link for the rick rol
 def get_rick():
-  link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
+    link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
 
-  return (link)
+    return (link)
+
 
 # Function to get the current date and time
 # Work in Progress
 def get_time():
-  current_time = time.strftime("%I:%S %p")
+    current_time = time.strftime("%I:%S %p")
 
-  time_formatted = ("The current time is: " 
-  + str(current_time))
-  
-  return (time_formatted)
+    time_formatted = ("The current time is: " +
+                      str(current_time))
+
+    return (time_formatted)
+
 
 # Function to get a random color
 # Used as reference: https://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
 def get_random_color():
-  rand_color = "%06x" % random.randint(0 , 0xFFFFFF)
+    rand_color = "%06x" % random.randint(0, 0xFFFFFF)
 
-  link_color = "https://color-hex.org/color/" + rand_color
+    link_color = "https://color-hex.org/color/" + rand_color
 
-  return (link_color)
+    return (link_color)
+
 
 # Function to make sure that the bot is saying something
 # Every 20 seconds. Note that this will only print to
 # The console, and not to the Discord server.
 # Used as reference: https://stackoverflow.com/questions/3393612/run-certain-code-every-n-seconds
 def time_test():
-  threading.Timer(120.0, time_test).start()
-  
-  print("This is a test to make sure I am always saying something every 2 minutes.")
+    threading.Timer(120.0, time_test).start()
+
+    print("This is a test to make sure "
+          "I am always saying something every 2 minutes.")
 
 
 # Function to update the encouragements from the database
