@@ -78,14 +78,13 @@ def get_random_color():
 
 
 # Function to make sure that the bot is saying something
-# Every 20 seconds. Note that this will only print to
+# Every 10 minutes. Note that this will only print to
 # The console, and not to the Discord server.
 # Used as reference: https://stackoverflow.com/questions/3393612/run-certain-code-every-n-seconds
 def time_test():
-    threading.Timer(120.0, time_test).start()
-
+    threading.Timer(600.0, time_test).start()
     print("This is a test to make sure "
-          "I am always saying something every 2 minutes.")
+          "I am always saying something every 10 minutes.")
 
 
 # Function to update the encouragements from the database
