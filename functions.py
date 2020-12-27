@@ -48,7 +48,7 @@ def get_daily_quote():
     return(daily_quote)
 
 
-# Function to get the link for the rick rol
+# Function to get the link for the rick roll
 def get_rick():
     link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
 
