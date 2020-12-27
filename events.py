@@ -1,6 +1,6 @@
 import discord
 import random
-from functions import get_daily_quote, get_rick, get_time, get_random_color
+from functions import get_daily_quote, get_rick, get_time, get_random_color, get_money
 
 
 # Create variable for our bot
@@ -62,3 +62,7 @@ async def on_message(message):
     if msg.startswith('$color'):
         rand_color = get_random_color()
         await message.channel.send(rand_color)
+
+    if msg.startswith('$money'):
+        make_money = get_money()
+        await message.channel.send(make_money)

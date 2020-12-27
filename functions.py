@@ -78,6 +78,22 @@ def get_random_color():
 
     return (link_color)
 
+# Function to determine how much money you made
+# Get a random number, and if your number is the lucky one
+# You will make $100,000
+# Note: this is meant to be for fun
+def get_money():
+  amount = "$100,000"
+  amount_made = ""
+
+  rand_num = random.randint(0, 9999)
+
+  if rand_num <= 10 and rand_num >= 900:
+      amount_made = "Congratulations, you just made " + amount
+  else:
+    amount_made = "Sorry, you made no money. Better luck next time."
+
+  return (amount_made)
 
 # Function to make sure that the bot is saying something
 # Every 10 minutes. Note that this will only print to
