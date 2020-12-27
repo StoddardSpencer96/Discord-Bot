@@ -1,4 +1,4 @@
-Last Updated: December 25th, 2020
+Last Updated: December 26th, 2020
 
 ## List of Commands:
 * $daily - for the quote of the day
@@ -14,7 +14,6 @@ Last Updated: December 25th, 2020
 * Bot will send a random greeting whenever the user types in "hi", "hey", or "hello" in lowercase, uppercase, or mixed case.
 
 ## TO-DO LIST:
-* Clean up code to make the main.py file neater
 * Implement the current time whenever the user types $time
 * Convert input to binary and hexadecimal numbers
 * Add Sounds to the Bot
