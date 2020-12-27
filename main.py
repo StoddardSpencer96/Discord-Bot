@@ -1,12 +1,13 @@
 import discord
 import os
 import random
+import events
 from replit import db
 from keep_alive import keep_alive
-from functions import get_quote, update_encouragements, delete_encouragement
+from functions import (time_test, update_encouragements, delete_encouragement)
 
-# Create variable for our bot
 client = discord.Client()
+
 
 # List of sad words
 sad_words = ["sad", "depressed",
@@ -26,12 +27,12 @@ bot_greetings = ["Hello!", "Hey!",
                  "Hi!", "Good to see you again.",
                  "Hey dude!"]
 
+time_test()
 
 # Event for logging in
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-
 
 # Event for getting the message
 @client.event
@@ -39,26 +40,12 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    # Create new variables for easier access
+    # Call the on_message() function in the events.py file
+    await events.on_message(message)
+
+    # Define variables to make it easier to access
     msg = message.content
-    greeting = bot_greetings
     options = starter_encouragements
-
-    # If user types $inspire, call the get_quote() function,
-    # Then show the quote to the user
-    if msg.startswith('$inspire'):
-        quote = get_quote()
-        await message.channel.send(quote)
-
-    # If our message starts with any variation of hi, hey or hello,
-    # Then choose a random greeting for the bot to use
-    if msg.lower().startswith("hi") or msg.lower().startswith("hey") or msg.lower().startswith("hello"):
-        await message.channel.send(random.choice(greeting))
-
-    # If our message is $rickroll, then rick roll the user
-    if msg.startswith('$rickroll'):
-        link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
-        await message.channel.send(link)
 
     # If "responding" isn't in our database,
     # Then add True
@@ -107,20 +94,6 @@ async def on_message(message):
         if "encouragements" in db.keys():
             encouragements = db["encouragements"]
         await message.channel.send(encouragements)
-
-    # If the user types in $responding, then take the
-    # User input, and if they type true, notify the user
-    # That responding is on. If they type false, notify
-    # The user that responding is off.
-    if msg.startswith('$responding'):
-        value = msg.split("$responding ", 1)[1]
-
-        if value.lower() == "true":
-          db["responding"] = True
-          await message.channel.send("Responding is on.")
-        else:
-          db["responding"] = False
-          await message.channel.send("Responding is off.")
 
 # Runs our web server
 keep_alive()
