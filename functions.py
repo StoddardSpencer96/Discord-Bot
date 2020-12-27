@@ -1,10 +1,9 @@
 import requests
 import json
-import time
 import random
 import threading
 from replit import db
-from datetime import date
+from datetime import date, datetime, timezone
 
 
 # Function to format the time
@@ -56,13 +55,16 @@ def get_rick():
     return (link)
 
 
-# Function to get the current date and time
+# Function to get the current time
 # Work in Progress
+# Used as reference: https://stackoverflow.com/questions/25837452/python-get-current-time-in-right-timezone
 def get_time():
-    current_time = time.time()
 
-    time_formatted = ("The current time is: " +
-                      str(current_time))
+    utc_time = datetime.now(timezone.utc)
+
+    current_time = utc_time.astimezone()
+
+    time_formatted = current_time.strftime("The current time is: %H %M:%S UTC")
 
     return (time_formatted)
 

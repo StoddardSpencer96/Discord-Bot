@@ -27,6 +27,7 @@ bot_greetings = ["Hello!", "Hey!",
                  "Hi!", "Good to see you again.",
                  "Hey dude!"]
 
+# Calls the function
 time_test()
 
 # Event for logging in
