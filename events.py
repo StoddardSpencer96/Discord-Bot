@@ -58,6 +58,7 @@ async def on_message(message):
         now = get_time()
         await message.channel.send(now)
 
+    # If our message is $color, then display a random color to the user
     if msg.startswith('$color'):
         rand_color = get_random_color()
         await message.channel.send(rand_color)
