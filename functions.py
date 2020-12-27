@@ -1,10 +1,9 @@
 import requests
 import json
-import time
 import random
 import threading
 from replit import db
-from datetime import date
+from datetime import date, datetime, timezone
 
 
 # Function to format the time
@@ -49,7 +48,7 @@ def get_daily_quote():
     return(daily_quote)
 
 
-# Function to get the link for the rick rol
+# Function to get the link for the rick roll
 def get_rick():
     link = "https://www.youtube.com/watch?v=dGeEuyG_DIc"
 
@@ -57,12 +56,15 @@ def get_rick():
 
 
 # Function to get the current date and time
-# Work in Progress
+# Gets the time in UTC, but not in intended time zone (AST)
+# Used as reference: https://stackoverflow.com/questions/25837452/python-get-current-time-in-right-timezone
 def get_time():
-    current_time = time.time()
 
-    time_formatted = ("The current time is: " +
-                      str(current_time))
+    utc_time = datetime.now(timezone.utc)
+
+    current_time = utc_time.astimezone()
+
+    time_formatted = current_time.strftime("The current time is: %H %M:%S")
 
     return (time_formatted)
 
