@@ -1,7 +1,8 @@
 import discord
 import random
 from functions import get_daily_quote, get_rick, get_time, get_random_color
-                      
+
+
 # Create variable for our bot
 client = discord.Client()
 
@@ -29,7 +30,7 @@ bot_greetings = ["Hello!", "Hey!",
 async def on_message(message):
     if message.author == client.user:
         return
-    
+
     # Create new variables for easier access
     msg = message.content
     greeting = bot_greetings
