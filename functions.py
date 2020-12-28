@@ -2,6 +2,7 @@ import requests
 import json
 import random
 import threading
+from colorama import Fore, Back, Style
 from replit import db
 from datetime import date, datetime, timezone
 
@@ -76,7 +77,24 @@ def get_random_color():
 
     link_color = "https://color-hex.org/color/" + rand_color
 
+    text_color = get_text_color()
+
+    print(text_color)
+
     return (link_color)
+
+# Function to style the text
+# This function gets called when user types in $color
+# This will ONLY get printed to the console.
+def get_text_color():
+
+  text_color = Fore.RED + "some red text\n"
+  background_color = Back.BLUE + "a blue background\n"
+  style_color = Style.NORMAL + "with a normal style\n"
+
+  full_color = text_color + " " + background_color + " " + style_color
+
+  print(full_color)
 
 # Function to determine how much money you made
 # Get a random number, and if your number is the lucky one

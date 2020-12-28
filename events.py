@@ -1,6 +1,6 @@
 import discord
 import random
-from functions import get_daily_quote, get_rick, get_time, get_random_color, get_money
+from functions import get_daily_quote, get_rick, get_time, get_random_color, get_text_color, get_money
 
 
 # Create variable for our bot
