@@ -18,6 +18,9 @@ Last Updated: December 28th, 2020
 * Convert input to binary and hexadecimal numbers
 * Add Sounds to the Bot
 
+# Under Construction:
+* $rand - Bot will generate random numbers and display them in the chat.
+
 ## Former Commands
 * $responding True (removed on Dec 24th, 2020)
 * $responding False (removed on Dec 24th, 2020)
