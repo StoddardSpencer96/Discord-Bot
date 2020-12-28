@@ -1,4 +1,4 @@
-Last Updated: December 26th, 2020
+Last Updated: December 28th, 2020
 
 ## List of Commands:
 * $daily - for the quote of the day
@@ -6,7 +6,7 @@ Last Updated: December 26th, 2020
 * $del - to delete an inspirational message
 * $list - to see the list of inspirational messages
 * $rickroll - Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
-* $color - Bot will generate a random color using its hex value
+* $color - Bot will generate a random color using its hex value; console will print out some styled text.
 
 ## Other:
 * Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
