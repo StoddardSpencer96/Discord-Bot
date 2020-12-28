@@ -30,10 +30,12 @@ bot_greetings = ["Hello!", "Hey!",
 # Calls the function
 time_test()
 
+
 # Event for logging in
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
 
 # Event for getting the message
 @client.event
