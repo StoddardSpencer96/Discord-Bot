@@ -1,4 +1,4 @@
-Last Updated: December 28th, 2020
+Last Updated: December 29th, 2020
 
 ## List of Commands:
 * $daily - for the quote of the day
@@ -7,6 +7,7 @@ Last Updated: December 28th, 2020
 * $list - to see the list of inspirational messages
 * $rickroll - Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 * $color - Bot will generate a random color using its hex value; console will print out some styled text.
+* $rand - Bot will generate a random number, and then convert the number to binary and hexadecimal.
 
 ## Other:
 * Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
@@ -19,7 +20,6 @@ Last Updated: December 28th, 2020
 * Add Sounds to the Bot
 
 # Under Construction:
-* $rand - Bot will generate random numbers and display them in the chat.
 
 ## Former Commands
 * $responding True (removed on Dec 24th, 2020)
