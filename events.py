@@ -3,7 +3,7 @@ import random
 from functions import (get_daily_quote, get_rick,
                        get_time, get_random_color,
                        get_money,
-                       get_random_numbers)
+                       get_random_number)
 
 
 # Create variable for our bot
@@ -75,5 +75,5 @@ async def on_message(message):
     # If our message is $rand, then display random numbers
     # To the user
     if msg.startswith('$rand'):
-        random_nums = get_random_numbers()
+        random_nums = get_random_number()
         await message.channel.send(random_nums)

@@ -116,21 +116,25 @@ def get_money():
     return (amount_made)
 
 
-# Function to generate 20 random numbers from 0 to 100
-# Work in progress
-def get_random_numbers():
+# Function to generate a random number, and convert
+# The number to binary, and hexadecimal
+def get_random_number():
+    rand = random.randint(0, 100)
 
-    rand_nums = []
+    # Convert to binary
+    b_num = bin(rand)
 
-    for i in range(20):
-        rand = random.randint(0, 100)
+    # Convert to hexadecimal
+    h_num = hex(rand)
 
-        rand_nums.append(rand)
+    # Show the full result
+    rand_result = "Your random number is: " + str(rand) + " "
+    binary_result = "\n" + str(rand) + " in binary is: " + str(b_num) + " "
+    hex_result = "\n" + str(rand) + " in hexadecimal is: " + str(h_num)
 
-    for rand_num in rand_nums:
-        print(rand_num)
+    full_result = rand_result + binary_result + hex_result
 
-    return (rand_num)
+    return (full_result)
 
 
 # Function to make sure that the bot is saying something
