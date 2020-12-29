@@ -119,13 +119,18 @@ def get_money():
 # Function to generate 20 random numbers from 0 to 100
 # Work in progress
 def get_random_numbers():
+
+    rand_nums = []
+
     for i in range(20):
-        rand_num = random.randint(0, 100)
-        # print(rand_num)
+        rand = random.randint(0, 100)
 
-        all_nums = "Here are your numbers: " + str(rand_num) + "\n"
+        rand_nums.append(rand)
 
-    return (all_nums)
+    for rand_num in rand_nums:
+        print(rand_num)
+
+    return (rand_num)
 
 
 # Function to make sure that the bot is saying something

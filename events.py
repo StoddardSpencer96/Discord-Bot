@@ -75,5 +75,5 @@ async def on_message(message):
     # If our message is $rand, then display random numbers
     # To the user
     if msg.startswith('$rand'):
-        rand_nums = get_random_numbers()
-        await message.channel.send(rand_nums)
+        random_nums = get_random_numbers()
+        await message.channel.send(random_nums)
