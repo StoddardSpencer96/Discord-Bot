@@ -15,8 +15,6 @@ Last Updated: December 29th, 2020
 * Bot will send a random greeting whenever the user types in "hi", "hey", or "hello" in lowercase, uppercase, or mixed case.
 
 ## TO-DO LIST:
-* Implement the current time whenever the user types $time
-* Convert input to binary and hexadecimal numbers
 * Add Sounds to the Bot
 
 # Under Construction:
