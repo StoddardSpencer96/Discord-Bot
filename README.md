@@ -7,7 +7,7 @@ Last Updated: December 29th, 2020
 * $list - to see the list of inspirational messages
 * $rickroll - Bot will send a YouTube link to Never Gonna Give You Up by Rick Astley
 * $color - Bot will generate a random color using its hex value; console will print out some styled text.
-* $rand - Bot will generate a random number, and then convert the number to binary and hexadecimal.
+* $rand - Bot will generate a random number, and then convert the number to binary, hexadecimal, and octal.
 
 ## Other:
 * Bot will send a random encouraging message whenever a user types in a sad word (ex: sad, lonely, depressed, angry)
