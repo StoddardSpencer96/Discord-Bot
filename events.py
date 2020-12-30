@@ -3,7 +3,7 @@ import random
 from functions import (get_daily_quote, get_rick,
                        get_time, get_random_color,
                        get_money,
-                       get_random_number)
+                       get_random_number, get_current_weather)
 
 
 # Create variable for our bot
@@ -77,3 +77,7 @@ async def on_message(message):
     if msg.startswith('$rand'):
         random_nums = get_random_number()
         await message.channel.send(random_nums)
+
+    if msg.startswith('$weather'):
+      weather = get_current_weather()
+      await message.channel.send(weather)

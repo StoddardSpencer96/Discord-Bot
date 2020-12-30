@@ -140,6 +140,21 @@ def get_random_number():
 
     return (full_result)
 
+# Function to get the current weather in Halifax
+# Work in progress
+def get_current_weather():
+  api_key = "49a9f933ae346c574f5ebe90415464f4"
+  url = "https://api.openweathermap.org/data/2.5/weather?"
+  city = "Halifax"
+
+  full_url = url + "q=" + city + "&appid=" + api_key
+
+  response = requests.get(full_url)
+
+  json_response = response.json()
+
+  return (json_response)
+
 
 # Function to make sure that the bot is saying something
 # Every 10 minutes. Note that this will only print to
