@@ -117,7 +117,7 @@ def get_money():
 
 
 # Function to generate a random number, and convert
-# The number to binary, and hexadecimal
+# The number to binary, hexadecimal, and octal
 def get_random_number():
     rand = random.randint(0, 100)
 
@@ -127,12 +127,16 @@ def get_random_number():
     # Convert to hexadecimal
     h_num = hex(rand)
 
+    # Convert to octal
+    o_num = oct(rand)
+
     # Show the full result
     rand_result = "Your random number is: " + str(rand) + " "
     binary_result = "\n" + str(rand) + " in binary is: " + str(b_num) + " "
-    hex_result = "\n" + str(rand) + " in hexadecimal is: " + str(h_num)
+    hex_result = "\n" + str(rand) + " in hexadecimal is: " + str(h_num) + " "
+    oct_result = "\n" + str(rand) + " in octal is: " + str(o_num)
 
-    full_result = rand_result + binary_result + hex_result
+    full_result = rand_result + binary_result + hex_result + oct_result
 
     return (full_result)
 
