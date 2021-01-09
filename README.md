@@ -18,7 +18,7 @@ Last Updated: January 8th, 2020
 * Add Sounds to the Bot
 
 # Under Construction:
-Weather (implement it properly; currently doing so in small, maintainable steps)
+* Weather (implement it properly; currently doing so in small, maintainable steps)
 
 ## Former Commands
 * $responding True (removed on Dec 24th, 2020)
