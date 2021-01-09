@@ -2,6 +2,7 @@ import requests
 import json
 import random
 import threading
+import pytemperature
 from colorama import Fore, Back, Style
 from replit import db
 from datetime import date, datetime, timezone
@@ -140,9 +141,10 @@ def get_random_number():
 
     return (full_result)
 
+
 # Function to get the current weather in Halifax
 # Work in progress
-def get_current_weather():
+def load_current_weather():
   api_key = "49a9f933ae346c574f5ebe90415464f4"
   url = "https://api.openweathermap.org/data/2.5/weather?"
   city = "Halifax"
@@ -151,10 +153,17 @@ def get_current_weather():
 
   response = requests.get(full_url)
 
-  json_response = response.json()
+  json_response = json.loads(response.text)
 
-  return (json_response)
+  kelvin_temp = json_response['main']['temp']
 
+  celsius_temp = pytemperature.k2c(kelvin_temp)
+
+  current_celsius_temp = round(celsius_temp)
+
+  daily_weather = "The temperature in Halifax is " + str(current_celsius_temp) + " degrees celsius."
+
+  return (daily_weather)
 
 # Function to make sure that the bot is saying something
 # Every 10 minutes. Note that this will only print to
