@@ -1,3 +1,5 @@
+This Discord bot (which is still an incomplete product) was expanded upon after watching an online tutorial that guides users creating a Discord bot. I decided to increase the functionalities the bot can do.
+
 Last Updated: January 8th, 2020
 
 ## List of Commands:
