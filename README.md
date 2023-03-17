@@ -1,6 +1,8 @@
 This Discord bot (which is still an incomplete product) was expanded upon after watching an online tutorial that guides users creating a Discord bot. I decided to increase the functionalities the bot can do.
 
-Last Updated: January 8th, 2020
+After a 3 year hiatus I am continuing work on the Discord bot. The purpose is to add as many functionalities as possible to make it an "all in 1" bot. There are some vulnerabilities that need to be addressed.
+
+Last Updated: March 17th, 2023
 
 ## List of Commands:
 * $daily - for the quote of the day
